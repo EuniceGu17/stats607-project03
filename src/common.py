@@ -81,7 +81,7 @@ def versions():
 
 
 def simulation_signature(config):
-    files = ["common.py", "dgps.py", "methods.py", "metrics.py", "simulation.py"]
+    files = ["common.py", "dgps.py", "methods.py", "metrics.py", "simulation.py", "fast_kernel.py"]
     source = {name: file_hash(ROOT / "src" / name) for name in files}
     payload = {"config": config, "source": source, "versions": versions()}
     return hashlib.sha256(canonical_json(payload).encode()).hexdigest()
