@@ -1,0 +1,27 @@
+Unit 2 historical full-pipeline measurement (reported by user; 2026-11-06)
+Original Git tag: unit2-baseline
+Original commit (short): bdbd36b
+Measurement: fresh detached worktree running original Unit 2 Makefile, not Project 3 optimized code
+Command (inside ../unit2-timing):
+  /usr/bin/time -p make all PYTHON="$PYTHON_EXE" CONFIG=configs/full.json OUT=results/unit2-full-pipeline-timing
+
+/usr/bin/time -p:
+  real 19.85
+  user 17.92
+  sys   0.71
+
+Internal stage timing (seconds):
+  Simulation: 8.4904
+  Analysis:   0.3815
+  Figures:    1.3185
+  Sum as displayed by measurement script: 10.1905
+  Sum of individually rounded stage values: 10.1904
+
+Environment:
+  MacBook Pro (Mac15,6), Apple M3 Pro
+  12 CPU cores (6 performance, 6 efficiency), 18 GB unified memory
+  macOS 15.7.4 ARM64, Python 3.11.9
+
+The external wall time includes process startup/import overhead and all Makefile stages.
+The full-pipeline time must not be directly compared with the optimized simulation-only benchmark.
+The timing text is a user-supplied terminal transcript; raw worktree stage metadata remains local.

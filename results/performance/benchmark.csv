@@ -1,0 +1,13 @@
+engine,workers,repeat,seconds,config
+baseline,1,1,9.584429667331278,/Users/eunicegu/stats607/project03/configs/full.json
+baseline,1,2,9.571434333920479,/Users/eunicegu/stats607/project03/configs/full.json
+baseline,1,3,9.441031416878104,/Users/eunicegu/stats607/project03/configs/full.json
+optimized,1,1,4.671231290325522,/Users/eunicegu/stats607/project03/configs/full.json
+optimized,1,2,4.774169250391424,/Users/eunicegu/stats607/project03/configs/full.json
+optimized,1,3,4.753822917118669,/Users/eunicegu/stats607/project03/configs/full.json
+optimized,2,1,3.259246874600649,/Users/eunicegu/stats607/project03/configs/full.json
+optimized,2,2,3.228662750683725,/Users/eunicegu/stats607/project03/configs/full.json
+optimized,2,3,3.2290890840813518,/Users/eunicegu/stats607/project03/configs/full.json
+optimized,4,1,2.448828624561429,/Users/eunicegu/stats607/project03/configs/full.json
+optimized,4,2,2.4452748326584697,/Users/eunicegu/stats607/project03/configs/full.json
+optimized,4,3,2.4285076251253486,/Users/eunicegu/stats607/project03/configs/full.json

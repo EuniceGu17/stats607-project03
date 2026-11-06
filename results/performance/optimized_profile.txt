@@ -1,0 +1,50 @@
+Tue Nov  3 21:00:40 2026    results/performance/optimized.prof
+
+         3552881 function calls (3505857 primitive calls) in 1.511 seconds
+
+   Ordered by: cumulative time
+   List reduced from 4929 to 40 due to restriction <40>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      124    0.001    0.000    1.764    0.014 __init__.py:1(<module>)
+   1227/1    0.012    0.000    1.512    1.512 {built-in method builtins.exec}
+        1    0.000    0.000    1.512    1.512 <frozen runpy>:201(run_module)
+        1    0.000    0.000    1.511    1.511 <frozen runpy>:65(_run_code)
+        1    0.000    0.000    1.511    1.511 simulation.py:1(<module>)
+  1175/20    0.003    0.000    0.844    0.042 <frozen importlib._bootstrap>:1165(_find_and_load)
+  1137/20    0.002    0.000    0.843    0.042 <frozen importlib._bootstrap>:1120(_find_and_load_unlocked)
+  1098/21    0.002    0.000    0.842    0.040 <frozen importlib._bootstrap>:666(_load_unlocked)
+   923/21    0.001    0.000    0.842    0.040 <frozen importlib._bootstrap_external>:934(exec_module)
+  2701/42    0.001    0.000    0.837    0.020 <frozen importlib._bootstrap>:233(_call_with_frames_removed)
+        1    0.001    0.001    0.671    0.671 simulation.py:56(run_simulation)
+        1    0.000    0.000    0.631    0.631 dgps.py:1(<module>)
+       27    0.017    0.001    0.489    0.018 simulation.py:29(_simulate_block)
+        1    0.000    0.000    0.473    0.473 _stats_py.py:1(<module>)
+  674/160    0.000    0.000    0.440    0.003 {built-in method builtins.__import__}
+ 1242/733    0.001    0.000    0.387    0.001 <frozen importlib._bootstrap>:1207(_handle_fromlist)
+      625    0.000    0.000    0.276    0.000 _docscrape.py:579(__init__)
+      633    0.001    0.000    0.244    0.000 _docscrape.py:140(__init__)
+     2700    0.078    0.000    0.237    0.000 fast_kernel.py:8(evaluate_family_fast)
+      474    0.002    0.000    0.231    0.000 _array_api.py:840(decorator)
+     1098    0.001    0.000    0.193    0.000 <frozen importlib._bootstrap>:566(module_from_spec)
+      633    0.005    0.000    0.187    0.000 _docscrape.py:388(_parse)
+     2700    0.027    0.000    0.186    0.000 dgps.py:16(generate_family)
+      170    0.000    0.000    0.183    0.001 <frozen importlib._bootstrap_external>:1231(create_module)
+      170    0.182    0.001    0.183    0.001 {built-in method _imp.create_dynamic}
+        1    0.000    0.000    0.138    0.138 distributions.py:1(<module>)
+  170/116    0.000    0.000    0.128    0.001 <frozen importlib._bootstrap_external>:1239(exec_module)
+  170/116    0.015    0.000    0.128    0.001 {built-in method _imp.exec_dynamic}
+     2700    0.034    0.000    0.118    0.000 _distn_infrastructure.py:2216(sf)
+       27    0.000    0.000    0.105    0.004 csv.py:156(writerows)
+       27    0.057    0.002    0.105    0.004 {method 'writerows' of '_csv.writer' objects}
+        8    0.000    0.000    0.102    0.013 api.py:1(<module>)
+     8142    0.003    0.000    0.101    0.000 fromnumeric.py:48(_wrapfunc)
+13473/10936    0.001    0.000    0.098    0.000 {built-in method builtins.hasattr}
+     2701    0.001    0.000    0.090    0.000 fromnumeric.py:1100(argsort)
+     2701    0.088    0.000    0.088    0.000 {method 'argsort' of 'numpy.ndarray' objects}
+     3445    0.005    0.000    0.083    0.000 _docscrape.py:201(_read_to_next_section)
+        2    0.000    0.000    0.081    0.041 _support_alternative_backends.py:1(<module>)
+        1    0.000    0.000    0.081    0.081 _continuous_distns.py:1(<module>)
+     3591    0.003    0.000    0.080    0.000 _docscrape.py:212(_read_sections)
+
+

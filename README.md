@@ -1,3 +1,59 @@
+# STATS 607 Project 3 — High-Performance Simulation Study
+
+This project extends the Unit 2 reproduction of Storey (2002) with profiling, algorithmic improvement, array programming, parallel execution, numerical checks and output-preserving regression tests. **The scientific study design is unchanged.** The original Unit 2 documentation follows below; current measurements and interpretation are in [Baseline Performance](docs/BASELINE.md) and [Optimization and Validation](docs/OPTIMIZATION.md).
+
+## Unit 3 results at a glance
+
+For the full 27,000-family study, median simulation wall times over three uncached runs on a MacBook Pro (Apple M3 Pro, 12 cores, 18 GB memory; macOS 15.7.4 ARM64) were **9.571 s** (Unit 2 baseline), **4.754 s** (optimized serial), **3.229 s** (optimized 2 workers) and **2.445 s** (optimized 4 workers). This is **2.01× serial** and **3.91× overall** speedup (not including the analysis/figure stages). The baseline and optimized full raw `replicates.csv` files are **byte-identical** (same SHA-256), and their statistical summaries match. The recorded optimized stability sweep of 360 evaluations produced no numerical warnings, nonfinite outputs or exceptions.
+
+The **original Unit 2 full pipeline** (`make all`, fresh historical `unit2-baseline` worktree) took **19.85 s `real`** (internal stage timers: 8.4904 s simulation, 0.3815 s analysis, and 1.3185 s figures). This is a **different measurement scope** from the simulation-only performance comparison above; the 3.91× speedup must not be applied to all pipeline stages. See [BASELINE.md](docs/BASELINE.md) and the recorded [timing evidence](results/performance/baseline_full_pipeline_timing.txt).
+
+### Quick setup and verification
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+make test PYTHON=python
+make regression PYTHON=python
+make all CONFIG=configs/smoke.json OUT=results/project03-smoke PYTHON=python
+```
+
+### Required Unit 3 workflows
+
+```bash
+make profile PYTHON=python
+make complexity PYTHON=python
+make benchmark PYTHON=python
+make parallel PYTHON=python WORKERS=4
+make stability-check PYTHON=python
+```
+
+The `benchmark` target measures baseline and optimized serial full simulations; `parallel` additionally measures optimized worker counts. These commands overwrite relevant `results/performance/` CSVs and figures; keep the final validated run for submission. For a full optimized scientific run:
+
+```bash
+make all CONFIG=configs/full.json OUT=results/project03-full PYTHON=python
+```
+
+Results: [benchmark figure](results/performance/benchmark.png), [parallel speedup](results/performance/parallel_speedup.png), [complexity plot](results/performance/complexity.png), and machine-readable CSVs in `results/performance/`. The theoretical complexity remains `O(m log m + Gm)` per simulated family; the empirical end-to-end complexity slopes are affected by startup and I/O overhead (details in the reports).
+
+### Unit 3 implementation map
+
+- `baseline/src/`: untouched historical simulation engine for fair comparisons.
+- `src/fast_kernel.py`: shared sorting, cumulative truth counts and multi-gamma broadcasting.
+- `src/simulation.py`: optimized driver and optional `(mu, pi0)` block parallelism.
+- `src/performance.py`: profiler, timed benchmarks, complexity and scaling graphs.
+- `src/stability_check.py`: stress-condition numerical warning and nonfinite checks.
+- `tests/test_regression.py`: old/new and serial/parallel equivalence checks.
+- `docs/BASELINE.md`: measured baseline performance and bottleneck analysis.
+- `docs/OPTIMIZATION.md`: before/after examples, measured impact and trade-offs.
+
+The original pipeline timing has now been recorded. Before submission, verify that the report links and tracked performance figures are included in Git and all tests still pass on the local Mac.
+
+---
+
+## Unit 2 background (preserved original README)
+
 # Reproducing Storey (2002): FDR estimation and power
 
 My repository URL is [here](https://github.com/EuniceGu17/stats607-project02).

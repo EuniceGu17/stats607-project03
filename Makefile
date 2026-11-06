@@ -6,7 +6,7 @@ WORKERS ?= 4
 REPEATS ?= 3
 export MPLCONFIGDIR := $(CURDIR)/.cache/matplotlib
 
-.PHONY: all simulate analyze figures clean test regression profile complexity benchmark parallel stability-check baseline
+.PHONY: all simulate analyze figures clean test regression profile complexity benchmark parallel stability-check baseline audit
 
 all: figures
 
@@ -45,3 +45,6 @@ stability-check:
 
 clean:
 	$(PYTHON) -m src.clean --config "$(CONFIG)" --output "$(OUT)"
+
+audit:
+	$(PYTHON) scripts/final_audit.py
